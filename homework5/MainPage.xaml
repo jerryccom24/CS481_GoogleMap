@@ -3,11 +3,57 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
     <StackLayout>
         <!-- Place new controls here -->
-    <maps:Map WidthRequest="320" HeightRequest="200"
+        <Grid>
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="3.5*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-              />
 
+            <StackLayout Grid.Column="0" Grid.Row="0">
+                <Picker x:Name="myPicker"
+                        Title="Select Location"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        SelectedIndexChanged="myPicker_SelectedIndexChanged"
+                        WidthRequest="250"
+                        HeightRequest="50"
+                        
+                        TextColor="Black"></Picker>
+            </StackLayout>
+            <StackLayout Grid.Column="1" Grid.Row="0">
+
+                <Button Text="Toggle View Mode"
+                        TextColor="Black"
+                        BackgroundColor="LightGreen"
+                        BorderColor="Black"
+                        Clicked="Button_Clicked"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="125"
+                        HeightRequest="50"
+                        ></Button>
+
+            </StackLayout>
+
+
+            <StackLayout Grid.ColumnSpan="2" Grid.Row="1">
+            <maps:Map WidthRequest="500"
+                      HeightRequest="900"
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="CenterAndExpand"
+                      x:Name="myMap"
+                      IsShowingUser="True"
+                      MapType="Street"
+                      />
+            </StackLayout>
+
+            
     
-
+        </Grid>
     </StackLayout>
 </ContentPage>
